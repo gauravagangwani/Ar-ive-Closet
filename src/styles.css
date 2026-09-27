@@ -1,73 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
-
 :root {
-  font-family: 'Manrope', sans-serif;
-  color: #f4f1ea;
+  color-scheme: dark;
   background: #120f17;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  --muted: #aaa4ae;
-  --accent: #b9a0ff;
-  --mono: 'DM Mono', monospace;
 }
 
-* { box-sizing: border-box; }
-html { min-width: 320px; min-height: 100%; }
-body { margin: 0; min-width: 320px; min-height: 100vh; }
-a { color: inherit; text-decoration: none; }
+* {
+  box-sizing: border-box;
+}
 
-.page-shell {
-  width: min(1440px, 100%);
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
   min-height: 100vh;
-  margin: 0 auto;
-  padding: 0 clamp(22px, 6.1vw, 88px);
-  display: flex;
-  flex-direction: column;
-}
-.topbar, .footer {
-  min-height: 78px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgb(244 241 234 / 13%);
-}
-.wordmark { display: inline-flex; align-items: center; gap: 11px; font-size: 14px; font-weight: 700; letter-spacing: -.03em; }
-.mark { display: grid; width: 28px; height: 28px; place-items: center; border: 1px solid var(--accent); color: var(--accent); font: 10px var(--mono); letter-spacing: -.08em; }
-.top-note, .footer, .eyebrow, .hero-meta, .frame-index, .frame-hint { font: 9px var(--mono); letter-spacing: .12em; }
-.top-note { color: var(--muted); }
-.hero { flex: 1; display: grid; grid-template-columns: .82fr 1.18fr; align-items: center; gap: clamp(38px, 7vw, 104px); padding: clamp(56px, 9vh, 96px) 0; }
-.hero-copy { max-width: 430px; }
-.eyebrow { display: flex; align-items: center; gap: 10px; color: var(--accent); margin: 0 0 27px; }
-.eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 14px currentColor; }
-h1 { margin: 0; font-size: clamp(46px, 6.4vw, 86px); line-height: .99; letter-spacing: -.075em; font-weight: 600; }
-h1 em { color: var(--accent); font-weight: 500; }
-.intro { max-width: 350px; margin: 27px 0 42px; color: #bbb5c0; font-size: 14px; line-height: 1.9; }
-.hero-meta { display: flex; align-items: center; gap: 12px; color: #827d88; font-size: 8px; white-space: nowrap; }
-.meta-rule { width: 24px; height: 1px; background: #827d88; }
-.art-frame { position: relative; width: 100%; height: clamp(420px, 62vh, 650px); min-height: 400px; overflow: hidden; background: #27232c; border: 1px solid rgb(244 241 234 / 16%); }
-.dither-veil, .veil-canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
-.frame-index, .frame-hint { position: absolute; z-index: 2; bottom: 17px; color: #f4f1ea; font-size: 8px; text-shadow: 0 1px 8px #120f17; pointer-events: none; }
-.frame-index { left: 18px; }
-.frame-hint { right: 18px; color: #ddd6e8; }
-.footer { min-height: 66px; border-top: 1px solid rgb(244 241 234 / 13%); border-bottom: 0; color: #827d88; font-size: 8px; }
-.footer-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--accent); }
-
-@media (max-width: 760px) {
-  .page-shell { padding: 0 22px; }
-  .topbar { min-height: 66px; }
-  .top-note { font-size: 7px; }
-  .hero { grid-template-columns: 1fr; gap: 38px; padding: 55px 0 44px; }
-  .hero-copy { max-width: 500px; }
-  h1 { font-size: clamp(52px, 12vw, 76px); }
-  .intro { margin: 20px 0 26px; }
-  .art-frame { height: min(68vh, 560px); min-height: 360px; }
-  .footer { min-height: 58px; font-size: 7px; }
+  min-height: 100svh;
+  overflow: hidden;
+  background: #120f17;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; }
+.stage {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right))
+    max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+  background: #120f17;
+}
+
+.skull-animation {
+  position: relative;
+  width: min(92vw, 84svh, 860px);
+  height: min(92vw, 84svh, 860px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #120f17;
+  touch-action: manipulation;
+}
+
+.skull-animation canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
